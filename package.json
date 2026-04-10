@@ -15,7 +15,10 @@
     "build:linux": "npm run build && electron-builder --linux"
   },
   "keywords": [],
-  "author": "",
+  "author": {
+    "name": "chinagz",
+    "email": "chinagz@example.com"
+  },
   "license": "ISC",
   "dependencies": {
     "@electron-toolkit/utils": "^4.0.0",
