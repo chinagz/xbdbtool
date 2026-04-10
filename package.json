@@ -1,0 +1,77 @@
+{
+  "name": "xbdbtool",
+  "version": "1.0.0",
+  "description": "zmh的数据维护工具",
+  "main": "./out/main/index.js",
+  "scripts": {
+    "dev": "electron-vite dev -- --no-sandbox --disable-gpu-sandbox",
+    "build": "electron-vite build",
+    "preview": "electron-vite preview",
+    "start": "electron-vite preview",
+    "postinstall": "electron-builder install-app-deps",
+    "build:unpack": "npm run build && electron-builder --dir",
+    "build:win": "npm run build && electron-builder --win",
+    "build:mac": "npm run build && electron-builder --mac",
+    "build:linux": "npm run build && electron-builder --linux"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@electron-toolkit/utils": "^4.0.0",
+    "@element-plus/icons-vue": "^2.3.2",
+    "@vitejs/plugin-vue": "^6.0.5",
+    "better-sqlite3": "^12.8.0",
+    "electron": "^41.2.0",
+    "electron-updater": "^6.8.3",
+    "electron-vite": "^5.0.0",
+    "element-plus": "^2.13.6",
+    "mysql2": "^3.21.1",
+    "pg": "^8.20.0",
+    "pinia": "^3.0.4",
+    "typescript": "^6.0.2",
+    "vite": "^7.3.2",
+    "vue": "^3.5.32",
+    "vue-router": "^5.0.4"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "^25.5.2",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.zmh.xbdbtool",
+    "productName": "数据库执行工具",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "out/**/*"
+    ],
+    "mac": {
+      "category": "public.app-category.developer-tools",
+      "target": [
+        "dmg",
+        "zip"
+      ]
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "publish": [
+      {
+        "provider": "generic",
+        "url": "https://your-update-server.com/updates"
+      }
+    ]
+  }
+}
