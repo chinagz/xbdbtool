@@ -1,7 +1,7 @@
 import { app, BrowserWindow, ipcMain, dialog } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
-import { initDatabase, getConnections, saveConnection, deleteConnection, getTasks, createTask, updateTask, deleteTask, getReports, saveReport, deleteReport, clearReports, getConnection } from './storage'
+import { initDatabase, getConnections, saveConnection, deleteConnection, getTasks, createTask, updateTask, deleteTask, getReports, getReport, saveReport, deleteReport, clearReports, getConnection } from './storage'
 import { checkDriver, getDriverStatus, testConnection } from './drivers'
 import { startExecution, pauseExecution, resumeExecution, cancelExecution, isExecuting } from './executor'
 import { initAutoUpdater, checkForUpdate, downloadUpdate, installUpdate, getCurrentVersion, getUpdateStatus } from './updater'
@@ -201,10 +201,9 @@ function registerIpcHandlers(): void {
     return getReports()
   })
   
-  // 获取单个报告
-  ipcMain.handle('report:get', (_, taskId: string) => {
-    const reports = getReports()
-    return reports.find(r => r.taskId === taskId) || null
+  // 获取单个报告（根据报告 ID 查询）
+  ipcMain.handle('report:get', (_, id: string) => {
+    return getReport(id)
   })
   
   // 删除报告

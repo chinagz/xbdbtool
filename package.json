@@ -69,8 +69,9 @@
     },
     "publish": [
       {
-        "provider": "generic",
-        "url": "https://your-update-server.com/updates"
+        "provider": "github",
+        "owner": "chinagz",
+        "repo": "xbdbtool"
       }
     ]
   }

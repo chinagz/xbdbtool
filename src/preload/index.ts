@@ -79,9 +79,9 @@ const electronAPI = {
     // 获取所有报告
     getAll: (): Promise<ExecutionReport[]> => ipcRenderer.invoke('report:get-all'),
     
-    // 获取单个报告
-    get: (taskId: string): Promise<ExecutionReport | null> => 
-      ipcRenderer.invoke('report:get', taskId),
+    // 获取单个报告（根据报告 ID 查询）
+    get: (id: string): Promise<ExecutionReport | null> => 
+      ipcRenderer.invoke('report:get', id),
     
     // 删除报告
     delete: (id: string): Promise<void> => ipcRenderer.invoke('report:delete', id),
