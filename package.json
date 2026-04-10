@@ -44,7 +44,7 @@
   },
   "build": {
     "appId": "com.zmh.xbdbtool",
-    "productName": "数据库执行工具",
+    "productName": "XBDBTool",
     "directories": {
       "output": "dist"
     },
