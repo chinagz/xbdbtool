@@ -103,15 +103,12 @@ jobs:
             dist-mac/*.dmg
             dist-mac/*.zip
             dist-mac/*.blockmap
-            dist-mac/*.yml
-            !dist-mac/builder-debug.yml
+            dist-mac/latest-mac.yml
             dist-win/*.exe
             dist-win/*.blockmap
-            dist-win/*.yml
-            !dist-win/builder-debug.yml
+            dist-win/latest.yml
             dist-linux/*.AppImage
             dist-linux/*.deb
-            dist-linux/*.yml
-            !dist-linux/builder-debug.yml
+            dist-linux/latest-linux.yml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
